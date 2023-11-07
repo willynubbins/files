@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LnB Login</title>
+    <link type="text/css" rel="stylesheet" href="css/myFirstStyleSheet.css"/>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend><strong>Welcome, LnB Member:</strong></legend>
+            <label for="uname">Username:</label>
+            <input type="text" id="uname" name="uname"><br><br>
+            <label for="pswd">Password:</label>
+            <input type="password" id="pswd" name="pswd"><br><br>
+            <a href="enterCode.html" id="signin" class="button">Sign In</a>
+        </fieldset>
+    </form>
+	<script>
+        // Get a reference to the Sign In button
+        var signInButton = document.getElementById("signin");
+
+        // Add a click event listener to the button
+        signInButton.addEventListener("click", function(event) {
+            // Get the values of the username and password fields and hide them from plain sight.
+            var username = document.getElementById("uname").value;
+			var encodedUname = "amFuZS5kb2VAY3liZXIub3Jn";
+			var decodedUname = atob(encodedUname);
+            var password = document.getElementById("pswd").value;
+			var encodedPswd = "Q3liM3IkZWN1cml0eQ=="
+			var decodedPswd = atob(encodedPswd);
+
+            // Check to make sure the correct username and password have been entered.
+            if (username !== decodedUname || password !== decodedPswd) {
+                // Prevent the form from submitting
+                event.preventDefault();
+                alert("Invalid username or password.");
+            }
+        });
+    </script>
+</body>
+</html>
