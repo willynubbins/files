@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LnB Bank - Account Balances</title>
+    <link type="text/css" rel="stylesheet" href="css/myFirstStyleSheet.css">
+</head>
+<body>
+	<h1>LnB Bank Account Balances</h1>
+    <h2>Welcome, Jane Doe</h2>
+    <table>
+        <tr>
+            <th>Account Type</th>
+            <th>Balance</th>
+        </tr>
+        <tr>
+            <td>Checking Account</td>
+            <td>$2,345</td>
+        </tr>
+        <tr>
+            <td>Savings Account</td>
+            <td>$7,035</td>
+        </tr>
+    </table><br>
+	<h3>Select from the options below for convenient Online Banking!</h3>
+	<button type="button" id="signin" class="button">Make a Deposit</button>
+	<button type="button" id="signin2" class="button">Transfer Funds</button>
+	<button type="button" id="signin3" class="button">Apply for a Loan</button>
+	<button type="button" id="signin4" class="button">Contact Us</button>
+	<a href="index.html" id="logout" class="button">Log Out</a>
+	<script>
+	// Get a reference to any of the buttons
+        var goButton = document.getElementById("signin");
+		var goButton2 = document.getElementById("signin2");
+		var goButton3 = document.getElementById("signin3");
+		var goButton4 = document.getElementById("signin4");
+
+        // Add a click event listener to the button
+        goButton.addEventListener("click", function(event) {
+                // Prevent the form from submitting
+                event.preventDefault();
+				alert("This doesn't actually do anything. Sorry.")
+        });
+		goButton2.addEventListener("click", function(event) {
+                // Prevent the form from submitting
+                event.preventDefault();
+				alert("This doesn't actually do anything. Sorry.")
+        });
+		goButton3.addEventListener("click", function(event) {
+                // Prevent the form from submitting
+                event.preventDefault();
+				alert("This doesn't actually do anything. Sorry.")
+        });
+		goButton4.addEventListener("click", function(event) {
+                // Prevent the form from submitting
+                event.preventDefault();
+				alert("This doesn't actually do anything. Sorry.")
+        });
+	</script>
+</body>
+</html>

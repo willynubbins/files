@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LnB Authentication</title>
+    <link type="text/css" rel="stylesheet" href="css/myFirstStyleSheet.css"/>
+</head>
+<body>
+<form>
+  <fieldset>
+    <legend><strong>We sent a six-digit code to xxx-xxx-0101.</strong></legend>
+    <label for="ucode">Code:</label>
+    <input id="ucode" name="ucode"><br><br>
+    <a href="#" id="signin" class="button">Go</a>
+  </fieldset>
+</form>
+<script>
+        // Get a reference to the Sign In button
+        var goButton = document.getElementById("signin");
+        var codeInput = document.getElementById("ucode");
+
+        // Initialize the number of attempts
+        var attempts = 0;
+
+        // Set the maximum number of allowed attempts
+        var maxAttempts = 3;
+
+        // Function to handle Go button click or Enter key press
+        function handleSignIn(event) {
+            // Get the value of the code input field
+            var code = codeInput.value;
+            var encodedCode = "MDQyOTc3";
+            var decodedCode = atob(encodedCode);
+
+            // Check if the code is incorrect
+            if (code !== decodedCode) {
+                attempts++;
+                // Check if the maximum number of attempts has been reached
+                if (attempts >= maxAttempts) {
+                    // Redirect to the accessDenied.html page
+					codeInput.value = "";
+                    window.location.href = "accessDenied.html";
+                } else {
+                    alert("Incorrect code. You have " + (maxAttempts - attempts) + " attempts remaining.");
+                    // Clear the input box for the next attempt
+                    codeInput.value = "";
+                }
+                // Prevent the form from submitting
+                event.preventDefault();
+            } else {
+                // Redirect to the obfuscated landing page
+				codeInput.value = "";
+                window.location.href = atob("bGFuZGluZ1BhZ2UuaHRtbA==");
+            }
+        }
+
+        // Add a click event listener to the button
+        goButton.addEventListener("click", handleSignIn);
+
+        // Add a keypress event listener to the input field
+        codeInput.addEventListener("keypress", function(event) {
+            // Check if the pressed key is the Enter key (key code 13)
+            if (event.keyCode === 13) {
+                handleSignIn(event);
+            }
+        });
+    </script>
+</body>
+</html>
